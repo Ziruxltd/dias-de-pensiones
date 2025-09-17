@@ -55,6 +55,8 @@
         </p>
       </q-card-section>
     </q-card>
+
+    <p>Made for zepak</p>
   </div>
 </template>
 
