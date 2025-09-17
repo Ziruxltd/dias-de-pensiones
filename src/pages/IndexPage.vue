@@ -1,55 +1,65 @@
 <template>
   <div class="row justify-evenly">
-    <q-card class="col-6">
+    <q-card class="col-12 col-md-6 q-mt-lg">
       <q-card-section class="column items-center">
-        <div class="text-h5">Gasto total al año en pensiones</div>
-        <p class="text-h3">{{ numberToStringWithCommas(pensionCostPerYear) }}€</p>
-        <p class="text-h6">{{ numberToSpanishWords(pensionCostPerYear) }} euros</p>
+        <div class="text-h6 text-md-h5">Gasto total al año en pensiones</div>
+        <p class="text-h4 text-md-h3">{{ numberToStringWithCommas(pensionCostPerYear) }}€</p>
+        <p class="text-subtitle1 text-md-h6">
+          {{ numberToSpanishWords(pensionCostPerYear) }} euros
+        </p>
       </q-card-section>
     </q-card>
 
-    <q-card class="col-5">
+    <q-card class="col-12 col-md-5 q-mt-lg">
       <q-card-section class="column items-center">
-        <div class="text-h5">Gasto total al año en pensiones de jubilación</div>
-        <p class="text-h3">{{ numberToStringWithCommas(retirementPensionCostPerYear) }}€</p>
-        <p class="text-h6">{{ numberToSpanishWords(retirementPensionCostPerYear) }} euros</p>
+        <div class="text-h6 text-md-h5">Gasto total al año en pensiones de jubilación</div>
+        <p class="text-h4 text-md-h3">
+          {{ numberToStringWithCommas(retirementPensionCostPerYear) }}€
+        </p>
+        <p class="text-subtitle1 text-md-h6">
+          {{ numberToSpanishWords(retirementPensionCostPerYear) }} euros
+        </p>
       </q-card-section>
     </q-card>
 
-    <q-card class="col-8 q-mt-lg">
+    <q-card class="col-12 col-md-8 q-mt-lg">
       <q-card-section class="column items-center">
-        <div class="text-h5">Calculador de días de pensiones</div>
+        <div class="text-h6 text-md-h5">Calculador de días de pensiones</div>
         <div class="row items-center q-gutter-sm q-mt-md">
           <q-input outlined v-model="ammount" type="number" />
           <p>(En euros)</p>
         </div>
-        <p class="text-h6 q-mt-md">
+        <p class="text-subtitle1 text-md-h6 q-mt-md">
           Con {{ numberToStringWithCommas(ammount) }}€ se pueden financiar
           <strong>{{ daysHoursMinutes(ammount, pensionCostPerYear) }}</strong>
           de pensiones.
         </p>
-        <p class="text-h6">
+        <p class="text-subtitle1 text-md-h6">
           Con {{ numberToStringWithCommas(ammount) }}€ se pueden financiar
           <strong>{{ daysHoursMinutes(ammount, retirementPensionCostPerYear) }}</strong>
           de pensiones de jubilación.
         </p>
-        <p class="text-h6">
+        <p class="text-subtitle1 text-md-h6">
           Con {{ numberToStringWithCommas(ammount) }}€ se pueden financiar
           <strong>{{ numberToStringWithCommas(Math.floor(ammount / meanPension)) }}</strong>
           pensionistas por año. Un
-          {{ ((Math.floor(ammount / meanPension) / pensionists) * 100).toFixed(2) }}% de todos los
+          {{
+            ((Math.floor(ammount / meanPension) / pensionists) * 100).toFixed(2) + '% de todos los'
+          }}
           pensionistas.
         </p>
       </q-card-section>
     </q-card>
 
-    <q-card class="col-2 q-mt-lg">
+    <q-card class="col-12 col-md-2 q-mt-lg">
       <q-card-section class="column items-center">
-        <p class="text-h6">Hay {{ numberToStringWithCommas(pensionists) }} pensionistas</p>
-        <p class="text-h6">
+        <p class="text-subtitle1 text-md-h6">
+          Hay {{ numberToStringWithCommas(pensionists) }} pensionistas
+        </p>
+        <p class="text-subtitle1 text-md-h6">
           Un {{ ((pensionists / population) * 100).toFixed(2) }}% de la población española
         </p>
-        <p class="text-h6">
+        <p class="text-subtitle1 text-md-h6">
           Pensión media:
           {{ numberToStringWithCommas(meanPension) }}€/año
         </p>

@@ -12,7 +12,7 @@
             :label="button.label"
             :to="button.path"
             flat
-            class="text-black col-1"
+            class="text-black col-4 col-md-1"
             :class="{ 'bg-white': $route.path === button.path }"
           />
         </q-toolbar>
